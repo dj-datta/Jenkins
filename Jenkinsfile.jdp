@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Pull') {
             steps {
-                git 'https://github.com/sharadrathod/studentapp-ui.git'
+                git 'https://github.com/dj-datta/Jenkins..git'
             }
         }
         stage('Build') {
@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-creds') {
+                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-cred') {
                 sh '/opt/maven/bin/mvn sonar:sonar'
                 }
             }
