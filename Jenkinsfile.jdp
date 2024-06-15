@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Pull') {
             steps {
-                git 'https://github.com/dj-datta/Jenkins..git'
+                git 'https://github.com/dj-datta/Jenkins.git'
             }
         }
         stage('Build') {
