@@ -1,0 +1,70 @@
+create 1 ec2 instance t2.medium 
+
+downloa apache-tomcat.8 
+tar -xvf apache-tomcat* 
+
+./bin/catalina.sh start 
+
+
+cd conf/tomcat-users.xml 
+
+enter below script below line number of 55
+
+<role rolename="manager-gui"/>
+  <role rolename="manager-script"/>
+  <role rolename="manager-jmx"/>
+  <role rolename="manager-status"/>
+  <role rolename="admin-gui"/>
+  <user username="linux" password="redhat" roles="manager-gui,manager-script,manager-jmx,admin-gui"/> 
+
+  vim webapps/manager/META-INF/context.xml 
+
+  comment line number 21 and 22 
+  <!--       
+                                               -->  
+  like above 
+
+  ./bin/catalina.sh stop/start 
+
+  install plungin in jenkins 
+
+  deploy to container ---> plugin name 
+
+  then add one step 
+
+  syntax ----> deploy: Deploy war/ear to a container 
+  
+  WAR/EAR file 
+
+  **/*.war 
+
+  context path 
+
+  / 
+
+  Containers 
+
+  tomcat 8. 
+
+  Credentials 
+user 
+linux 
+pasword 
+redhat 
+
+id 
+
+tomcat-creds 
+
+description 
+
+tomcat 
+
+add 
+
+select 
+
+url 
+
+http://100.24.237.224:8080/
+
