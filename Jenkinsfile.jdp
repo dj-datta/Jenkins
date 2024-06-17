@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Pull') {
             steps {
-                git 'https://github.com/dj-datta/Jenkins.git'
+                git 'https://github.com/sharadrathod/studentapp-ui.git'
             }
         }
         stage('Build') {
@@ -13,14 +13,14 @@ pipeline {
         }
         stage('Test') {
             steps {
-                withSonarQubeEnv(installationName: 'sonars', credentialsId: 'sonar-creds') {
+                withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-creds') {
                 sh '/opt/maven/bin/mvn sonar:sonar'
                 }
             }
         } 
-        stage('Deploy') {
+                stage('Deploy') {
             steps {
-                echo '"Deploy successfully"'
+               deploy adapters: [tomcat8(credentialsId: 'tomcat-creds', path: '', url: 'http://18.144.155.7:8080')], contextPath: '/', war: '**/*.war'
             }
         }
     }
