@@ -10,7 +10,7 @@ cd conf/tomcat-users.xml
 
 enter below script below line number of 55
 
-<role rolename="manager-gui"/>
+  <role rolename="manager-gui"/>
   <role rolename="manager-script"/>
   <role rolename="manager-jmx"/>
   <role rolename="manager-status"/>
